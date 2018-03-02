@@ -1,0 +1,360 @@
+
+<head>
+  <link rel="stylesheet" href="styles/mtgdb.css" type="text/css">
+</head>
+
+
+
+
+
+<!-- citation: boostrap Navigation Bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">The Troll Under the Bridge Games</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="about">About us</a></li>
+      <li><a href="spicymodernbrews">Spicy Modern Brews</a></li>
+      <li><a href="mtgdb">(Modern) Magic The Gathering Database</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<body>
+
+
+<div class="container">
+<h3>The mtg db page</h3>
+
+<!-- scrollbox citation: w3schools boostrap scrollbox-->
+<div id="intro_scrollbox">
+Welcome to the community mtg database!
+<br/>
+<i>Rules:</i>
+<br />
+The rules are quite simple the whole point of this page is to share deck ideas for the modern MTG format.
+Just a couple caveats:
+This is a community maintained database, as such everyone has access to all tables in the database.
+Please keep the following in mind:
+<ul>
+<li>Deleting a plane that is currently selected as a plane of origin by a card in the database is not possible/allowed</li>
+<ul>
+<li>To delete a plane, there must be no cards that list it as a "plane of origin"</li>
+</ul>
+<li>If a card is a deleted, this will automatically update any sets or decks that listed as that card being
+ a part of that set/deck</li>
+</ul>
+
+</div>
+
+
+
+<form id="addcard" action="/mtgdb/card" method="post">
+  <legend>Add MTG Card to Database</legend>
+  Card Name: <input type="text" name="card_name">
+
+  Card Type: <select type="text" name="type">
+    <option value="artifact">artifact</option>
+    <option value="creature">creature</option>
+    <option value="enchantment">enchantment</option>
+    <option value="instant">enchantment</option>
+    <option value="land">land</option>
+    <option value="planeswalker">planeswalker</option>
+  </select>
+
+
+  Color1: <select type="text" name="color1">
+    <option value="">NULL</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="black">black</option>
+  </select>
+
+  Color2: <select type="text" name="color2">
+    <option value="">NULL</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="black">black</option>
+  </select>
+
+  Color3: <select type="text" name="color3">
+    <option value="">NULL</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="black">black</option>
+  </select>
+
+  Color4: <select type="text" name="color4">
+    <option value="">NULL</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="black">black</option>
+  </select>
+
+
+  Color5: <select type="text" name="color5">
+    <option value="">NULL</option>
+    <option value="white">white</option>
+    <option value="blue">blue</option>
+    <option value="red">red</option>
+    <option value="green">green</option>
+    <option value="black">black</option>
+  </select>
+
+  
+  <br />
+  Converted Mana Cost: <input type="number" name="converted_mana_cost">
+  
+  Plane of Origin: <select type="number" name="planeID">
+    {{#each plane}}
+    <option value="{{plane_id}}">{{name}}</option>
+    {{/each}}
+
+  </select>
+
+
+  <br/>
+  <input type="submit" value = "Submit">
+</form>
+
+
+
+<h4><b>Cards in database</b></h4>
+
+<div id="cards_scrollbox">
+<table class="table">
+    <thead> 
+        <th>Card Name</th> 
+        <th>Type</th>
+        <th>Color1</th>
+        <th>Color2</th>
+        <th>Color3</th>  
+        <th>Color4</th>  
+        <th>Color5</th>
+        <th>Converted Mana Cost</th>
+        <th>Plane of Origin</th>
+        <th></th>
+        <th>Update plane of origin relationship</th>    
+    </thead> 
+    
+    <tbody> 
+        {{#each magic_card}} 
+        <tr> 
+            <td>{{card_name}}</td> 
+            <td>{{type}}</td> 
+            <td>{{color1}}</td>
+            <td>{{color2}}</td> 
+            <td>{{color3}}</td> 
+            <td>{{color4}}</td>
+            <td>{{color5}}</td>
+            <td>{{converted_mana_cost}}</td>    
+            <td>{{name}}</td>
+            <td><button onclick="deleteCard({{card_id}})">Delete</button></td>
+            <td><a href="/mtgdb/{{card_id}}">Update</a></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+  </table>
+</div>
+
+<br/>
+
+<form id="addplane" action="/mtgdb/plane" method="post">
+  <legend>Add Plane to Database</legend>
+  Plane Name: <input type="text" name="name">
+  <input type="submit" value="Submit">
+</form>
+
+<br />
+
+<h4><b>Planes in Database</b></h4>
+<h5>Warning: Planes cannot be deleted if a card lists that plane as a plane of origin!</h5>
+<div id="planes_scrollbox">
+  <table class="table">
+    <thread>
+      <th>ID</th>
+      <th>Plane Name</th>
+    </thread>
+
+    <tbody>
+      {{#each plane}}
+      <tr>
+          <td>{{plane_id}}</td>
+          <td>{{name}}</td>
+          <td><button onclick="deletePlane({{plane_id}})">Delete</button></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<br />
+
+
+<form id="addDeck" action="/mtgdb/deck" method="post">
+  <legend>Add Deck to Database</legend>
+  Deck Name: <input type="text" name="deck_name">
+  Description (255 char max): <input type="text" name="description">
+  <input type="submit" value="Submit">
+</form>
+<br />
+
+
+
+
+<h4><b>Decks in Database</b></h4>
+<div id="decks_scrollbox">
+  <table class="table">
+    <thread>
+      <th>ID</th>
+      <th>Deck Name</th>
+      <th>Description</th>
+    </thread>
+
+  <tbody>
+    {{#each deck}}
+    <tr>
+      <td>{{deck_id}}</td>
+      <td>{{deck_name}}</td>
+      <td>{{description}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+<form id="addCard_to_Deck" action="/mtgdb/updateDeckAdd" method="post">
+  <legend>Add Cards to a Deck</legend>
+  Deck: <select name="deck_name" id="deck-selector">
+    {{#each deck}}
+    <option value="{{deck_name}}">{{deck_name}}</option>
+    {{/each}}
+  </select>
+
+  Card to Add:<select name="card_name" id="card-selector">
+    {{#each magic_card}}
+    <option value="{{card_name}}">{{card_name}}</option>
+    {{/each}}
+  </select>
+  <input type="submit" value="Submit">
+
+</form>
+
+<br />
+
+
+
+
+
+<h4><b>List/View Cards in a Deck and Remove Deck-Card Association</b></h4>
+<h6>(Opens Deck List in new Window)</h6>
+<form id="displayCards" action="/mtgdb/displayCardsInDeck" method="post">
+   Deck: <select name="deck_name" id="deck-selector">
+    {{#each deck}}
+    <option value="{{deck_name}}">{{deck_name}}</option>
+    {{/each}}
+  </select>
+<input type="submit" value="Go">
+</form>
+
+
+
+
+
+<form id="addExpansion" action="/mtgdb/expansion_set" method="post">
+  <legend>Add Expansion Set to Database</legend>
+  Expansion Set: <input type="text" name="set_name">
+  <input type="submit" value="Submit">
+</form>
+<br />
+
+<h4><b>Expansion Sets in Database</b></h4>
+<div id="expansions_scrollbox">
+  <table class="table">
+    <thread>
+      <th>ID</th>
+      <th>Expansion Name</th>
+    </thread>
+
+    <tbody>
+      {{#each expansion_set}}
+      <tr>
+        <td>{{set_id}}</td>
+        <td>{{set_name}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+<br />
+
+
+<h4><b>List/View Cards in an Expansion</b></h4>
+<h6>(Opens Deck List in new Window)</h6>
+<form id="displayCardsInExp" action="/mtgdb/displayCardsInExp" method="post">
+  Expansion: <select name="set_name" id="set-selector">
+    {{#each expansion_set}}
+    <option value="{{set_name}}">{{set_name}}</option>
+    {{/each}}
+  </select>
+  <input type="Submit" value="Go">
+</form>
+
+
+
+
+
+<form id="addCard_to_Expansion" action="/mtgdb/updateExpAdd" method="post">
+  <legend>Add Cards to an Expansion Set</legend>
+  Expansion Set: <select name="set_name" id="set-selector2">
+    {{#each expansion_set}}
+    <option value="{{set_name}}">{{set_name}}</option>
+    {{/each}}
+  </select>
+
+  Card to Add:<select name="card_name" id="card-selector2">
+    {{#each magic_card}}
+    <option value="{{card_name}}">{{card_name}}</option>
+    {{/each}}
+  </select>
+  <input type="submit" value="Submit">
+
+</form>
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+
+
+</body>
+
+
+
+
+
+
+

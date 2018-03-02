@@ -1,0 +1,21 @@
+body {
+	background = white;
+}
+
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: auto;
+    height: 350px;
+    margin: auto;
+}
+
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.btn-secondary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(34, 139, 34);
+    border-color: rgb(108, 117, 125);
+}

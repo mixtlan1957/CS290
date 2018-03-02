@@ -1,0 +1,58 @@
+
+<script type="text/javascript">
+function selectPlane(plane_id){
+	$("#plane-selector").val(plane_id);
+}
+
+
+function updateCard(card_id){
+    $.ajax({
+        url: '/mtgdb/' + card_id,
+        type: 'PUT',
+        data: $('#update-card').serialize(),
+        success: function(result){
+            //window.location.reload(true);
+            //window.location.replace("./");
+            //window.location.reload(true);
+            window.location.href="/mtgdb";
+        }
+    })
+};
+
+</script>
+
+
+<body>
+<!-- citation: boostrap Navigation Bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">The Troll Under the Bridge Games</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/">Home</a></li>
+      <li><a href="about">About us</a></li>
+      <li><a href="spicymodernbrews">Spicy Modern Brews</a></li>
+      <li><a href="mtgdb">(Modern) Magic The Gathering Database</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<form id="update-card" action="/mtgdb" method="post">
+<legend>Update a card's relationship to plane of origin</legend> 
+Card Name: <input type="text" name="card_name" value="{{magic_card.card_name}}"><br>
+Plane of Origin: <select name="planeID" id="plane-selector">
+  {{#each plane}}
+  <option value="{{plane_id}}">{{name}}</option>
+  {{/each}}
+</select><br>
+  
+</form>
+<button onclick="updateCard({{magic_card.card_id}})">Update</button>
+<script defer>selectPlane({{magic_card.planeID}});</script>
+
+
+</body>
+

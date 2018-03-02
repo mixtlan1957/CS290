@@ -1,0 +1,42 @@
+body {
+	background: white;
+}
+
+
+#intro_scrollbox {
+    height: 150px;
+    width: 100%;
+    overflow: auto;
+}
+
+
+#cards_scrollbox {
+	height: 150px;
+	width: 100%;
+	overflow: auto;
+}
+
+#planes_scrollbox {
+	height: 150px;
+	width: 100%;
+	overflow: auto;
+}
+
+#decks_scrollbox {
+	height: 80px;
+	width: 100%;
+	overflow: auto;
+}
+
+
+
+#expansions_scrollbox {
+	height: 150px;
+	width: 100%;
+	overflow: auto;
+}
+
+
+.table {
+	font-size: 10px;
+}

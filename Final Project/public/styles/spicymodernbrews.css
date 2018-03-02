@@ -1,0 +1,9 @@
+body {
+	background: white;
+}
+
+.btn:hover {
+    color: blue;
+    background-color: red;
+    border-color: red;
+}

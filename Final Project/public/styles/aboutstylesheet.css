@@ -1,0 +1,10 @@
+body {
+	background: white;
+}
+
+
+#scrollbox {
+    height: 140px;
+    width: 100%;
+    overflow: auto;
+}
