@@ -46,7 +46,8 @@ module.exports = function() {
 
 
 	function getExpansionSets(res, mysql, context, complete) {
-		mysql.pool.query("SELECT set_id, set_name FROM expansion_set", 
+		mysql.pool.query("SELECT es.set_id, es.set_name, p.name FROM expansion_set es "+
+			"INNER JOIN plane p ON p.plane_ID=es.planeID;", 
 			function (error, results, fields){
 				if(error) {
 					res.write(JSON.stringify(error));
@@ -56,9 +57,6 @@ module.exports = function() {
 				complete();
 			});
 	}
-
-
-
 
 
 
@@ -159,8 +157,8 @@ module.exports = function() {
 	//function for adding of new expansion sets to db
 	router.post('/expansion_set', function(req, res){
 		var mysql=req.app.get('mysql');
-		var sql="INSERT INTO expansion_set (set_name) VALUES (?)";
-		var inserts = [req.body.set_name];
+		var sql="INSERT INTO expansion_set (set_name, planeID) VALUES (?, ?)";
+		var inserts = [req.body.set_name, req.body.planeID];
 		sql = mysql.pool.query(sql, inserts, function(error, results, fields) {
 			if(error) {
 				res.write(JSON.stringify(error));

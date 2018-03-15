@@ -282,6 +282,14 @@ Please keep the following in mind:
 <form id="addExpansion" action="/mtgdb/expansion_set" method="post">
   <legend>Add Expansion Set to Database</legend>
   Expansion Set: <input type="text" name="set_name">
+
+  Plane of Origin: <select type="number" name="planeID">
+  {{#each plane}}
+  <option value="{{plane_id}}">{{name}}</option>
+  {{/each}}
+
+  </select>
+
   <input type="submit" value="Submit">
 </form>
 <br />
@@ -292,6 +300,7 @@ Please keep the following in mind:
     <thread>
       <th>ID</th>
       <th>Expansion Name</th>
+      <th>Plane of Origin</th>
     </thread>
 
     <tbody>
@@ -299,6 +308,7 @@ Please keep the following in mind:
       <tr>
         <td>{{set_id}}</td>
         <td>{{set_name}}</td>
+        <td>{{name}}</td>
       </tr>
       {{/each}}
     </tbody>
