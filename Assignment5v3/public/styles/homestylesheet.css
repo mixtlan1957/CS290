@@ -1,0 +1,11 @@
+body {
+	background = white;
+}
+
+
+
+.btn-secondary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(34, 139, 34);
+    border-color: rgb(108, 117, 125);
+}

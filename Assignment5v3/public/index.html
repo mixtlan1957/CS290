@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8'>
+    <title>Workout Databse by MFranco-Munoz</title>
+    <!-- Bootstrap core CSS -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles/homestylesheet.css" type="text/css">
+    <script src='domInteraction.js'></script>
+  
+
+
+
+
+
+  </head>
+
+<body>
+
+
+
+
+<div class = "container">
+<h4>HOME PAGE</h4>
+
+
+<a href="reset/reset-table" method="GET">RESET TABLE</a>
+
+
+
+
+<form name = addWOForm onsubmit="return validateForm()">
+  <legend>Add Workout to the Workout Table</legend>
+  <fieldset>
+    Exercise Name: <input type="text" name="name" id="name"><br/>
+    Repetitions: <input type="number" name="reps" id="reps"><br/>
+    Weight: <input type="number" name="weight" id="weight"><br/>
+    Date: <input type="date" name="date" id="date"><br/>
+    Weight is in pounds?: <select type="number" name="lbs" id="lbs">
+      <option value="1">Pounds (lbs)</option>
+      <option value="0">Kilograms (kg)</option> 
+    </select>
+  </fieldset>
+  <input type="submit" value="Submit" id="addEntry">
+</form>
+
+
+
+
+
+
+
+
+<table id="workoutsTable" class="table">
+	<legend>Workouts</legend>
+	<tr>
+		<th>id</th>
+		<th>Exercise</th>
+		<th>Repetitions</th>
+		<th>Weight</th>
+		<th>Date</th>
+		<th>Unit</th>
+	</tr>
+</table>
+
+
+
+
+
+
+
+
+</div>
+</body>
+</html>
