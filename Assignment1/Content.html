@@ -1,0 +1,189 @@
+<!
+Mario Franco-Munoz
+Assignment 1
+1/18/2018
+HTML file for HW Assignment: HTML/CSS.
+!>
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>CS 290 HW Assignment: HTML/CSS by Mario Franco-Munoz</title>
+  <link rel="stylesheet" href="stylesheet.css" type="text/css">
+ </head>
+ <body>
+<table>
+	<caption>Current Modern MTG meta analysis. Cell content indicates deck with advantage</caption> 
+	
+	<thread>
+		<tr>
+			<th></th>
+			<th>Grixis DS</th>
+			<th>Affinity</th>
+      		<th>Humans</th>
+     		<th>Burn</th>
+      		<th>Tron</th>
+     	</tr>
+    </thread>
+
+		<tr class="inner">
+			<td><i>Grixis DS</i></td>
+			<td>N/A</td>
+			<td>Disadvantaged</td>
+			<td>unknown</td>
+			<td>Min Advantage</td>
+			<td>Even</td>
+		</tr>
+		<tr class="inner">
+			<td><i>Affinity</i></td>
+			<td>Advantaged</td>
+			<td>N/A</td>
+			<td>Even</td>
+			<td>Even</td>
+			<td>Advantaged</td>	
+		</tr>
+		<tr class="inner">
+			<td><i>Humans</i></td>
+			<td>unknown</td>
+			<td>Even</td>
+			<td>N/A</td>
+			<td>Even</td>
+			<td>Advantaged</td>
+		</tr>
+		<tr class="inner">
+			<td><i>Burn</i></td>
+			<td>Min Disadvantage</td>
+			<td>Even</td>
+			<td>Even</td>
+			<td>N/A</td>
+			<td>unknown</td>
+		</tr>
+		<tr class="inner">
+			<td><i>Tron</i></td>
+			<td>Even</td>
+			<td>Disadvantaged</td>
+			<td>Disadvantaged</td>
+			<td>unknown</td>
+			<td>N/A</td>
+		</tr>
+		<tfoot>
+			<td colspan ="2">Footer 1</td> 
+			<td colspan="4">Footer 2</td>
+		</tfoot>
+</table>
+<br />
+
+<ul>
+	<li>Best language</li>
+	<ul>Python</ul>
+	<li>Wackyist Language</li>
+	<ul>Haskell</ul>
+	<li>SEGFAULTiest language</li>
+	<ul>C</ul>
+</ul>
+
+<br />
+
+
+<div>
+	<span> </span>
+	<div class="inner-content">Here is some content.</div>
+</div>
+
+
+<form action=http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php method="get">
+	<fieldset>
+		<legend>Some GET Data</legend>
+		<label>Text here:
+			<input type="text" namme="text_input" size="20" maxlength="100">
+		</label>
+		<br />
+	</fieldset>
+	
+	<fieldset>
+		<label>Number here:
+			<input type="number" name="numerical_input" size="30" maxlength="100">
+		</label>
+	</fieldset>
+	
+	<fieldset>
+		<label>Password here:
+			<input type="Password" name="password_input" size="20" maxlength="50">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<p>Select between:
+			<br />
+			<br />
+			<label>
+				<input type="radio" name="candy" value="Snickers" />Snickers
+			</label>
+			<br />
+			<br />
+			<label>
+				<input type="radio" name="candy" value="Skittles" />Skittles
+			</label>
+			<br />
+			<br />
+			<label>
+				<input type="radio" name="candy" value="Mentos" />Mentos
+			</label>
+		</p>
+		<br />
+		<input type="Submit" value="submit"/>
+	</fieldset>
+
+</form>
+<br />
+<br />
+
+<form action=http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php method="post">
+	<fieldset>
+		<legend>Some POST Data</legend>
+		<label>Text here:
+			<input type="text" namme="text_input" size="20" maxlength="100">
+		</label>
+		<br />
+	</fieldset>
+	
+	<fieldset>
+		<label>Number here:
+			<input type="number" name="numerical_input" size="30" maxlength="100">
+		</label>
+	</fieldset>
+	
+	<fieldset>
+		<label>Password here:
+			<input type="Password" name="password_input" size="20" maxlength="50">
+		</label>
+	</fieldset>
+
+	<fieldset>
+		<p>Select between:
+			<br />
+			<br />
+			<label>
+				<input type="radio" name="candy" value="Snickers" />Snickers
+			</label>
+			<br />
+			<br />
+			<label>
+				<input type="radio" name="candy" value="Skittles" />Skittles
+			</label>
+			<br />
+			<br />
+			<label>
+				<input type="radio" name="candy" value="Mentos" />Mentos
+			</label>
+		</p>
+		<br />
+		<input type="Submit" value="submit"/>
+	</fieldset>
+
+</form>
+  
+ </body>
+</html>

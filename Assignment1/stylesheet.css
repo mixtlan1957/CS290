@@ -1,0 +1,59 @@
+/*
+Mario Franco-Munoz
+Assignment 1
+1/18/2018
+CSS file for HW Assignment: HTML/CSS.
+*/
+
+
+table {
+	border-style:double;
+	border-width:1px;
+	table-layout:fixed;
+	width: 800px;
+}
+
+tr.inner:nth-child(odd) {
+	background: lightgreen;
+}
+tr.inner:nth-child(even) {
+	background: lightblue;
+}
+
+
+
+th, td{
+	border-style:solid;
+	border-width:1px;
+	
+}
+
+ul{
+	list-style-type:none;
+}
+
+
+div>div.inner-content{
+  	/*The following positioning code was found searching stack overflow.
+  	Post: https://stackoverflow.com/questions/6490252/vertically-centering-a-div-inside-another-div */;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 75%;
+	height: 1em;
+
+	text-align: center;
+	background-color:lightblue;
+	
+
+}
+
+div{
+	background-color:lightpink;
+	position: relative;
+	width:60%;
+	height: 3em;
+}
+
+
